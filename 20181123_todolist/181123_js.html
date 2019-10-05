@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo-list</title>
+    <link rel="stylesheet" type="text/css" href="181123_j.css">
+</head>
+<body style="background-color: #dde8ff; font-family: sans-serif;">
+    <div id="todo">
+        <p style="font-size: 1.5em; font-weight: bold; margin:0.2em; text-align: left">My Todo List</p>
+    </div>
+    <script>
+        let todo = document.getElementById("todo");
+        let inbox = document.createElement("input");
+        let listbox = document.createElement("div");
+        let applyb = document.createElement("input");
+        inbox.type = "text";
+        applyb.type = "button";
+        applyb.value = "Apply";
+        listbox.style.padding = 0;
+        lists = [];
+        applyb.onclick = function () {
+            randRange = function (min, max) {
+                return Math.random() * (max-min) + min;
+            }
+            let list = document.createElement("div");
+            list.style.width = "100%";
+            let listt = document.createElement("div");
+            listt.className = "list";
+            listt.innerText = inbox.value;
+            listt.style.backgroundColor = "rgb("+randRange(200,255)+","+randRange(200,255)+","+randRange(200,255)+")";
+            inbox.value = "";
+            let delb = document.createElement("span");
+            delb.innerText = "❌";
+            delb.className = "btns";
+            delb.onclick = function () {
+                listbox.removeChild(list);
+            }
+            let doneb = document.createElement("span");
+            doneb.innerText = "✔️";
+            doneb.className = "btns";
+            doneb.onclick = function () {
+                if (listt.style.textDecoration == "line-through") {
+                    listt.style.textDecoration = "";
+                    listt.style.color = "black";
+                }
+                else {
+                    listt.style.textDecoration = "line-through";
+                    listt.style.color = "gray";
+                }
+            }
+            list.appendChild(doneb);
+            list.appendChild(listt);
+            list.appendChild(delb);
+            lists += list;
+            listbox.appendChild(list);
+        }
+        inbox.onkeydown = function (e) {
+            if (e.keyCode == 13) applyb.onclick();
+        }
+        todo.appendChild(inbox);
+        todo.appendChild(applyb);
+        todo.appendChild(listbox);
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.d_class{
+    color:green;
+    background-color: yellow;
+}
+#d_id{
+    color:red;
+    background-color: orange;
+}
+#d_id:hover{
+    color:red;
+    background-color: orange;
+    border: 10px solid;
+}
+
+.inline_block{
+    background-color: #babb9e;
+    display: inline-block;
+    width: 45%;
+}
+#d_3{
+    display: block;
+}
+/* global selector */
+*{
+    font-size: 90px;
+    margin:0;
+    box-sizing: border-box;
+}
