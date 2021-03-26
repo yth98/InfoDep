@@ -1,0 +1,12 @@
+body{
+    background-color:#dde8ff;
+    font-family: sans-serif;
+}
+#todo{
+    background-color:#f8f8f8;
+    border:2px dotted #cccccc;
+    padding:5px;
+    min-width:350px;
+    max-width:30%;
+    margin:10% auto;
+}
